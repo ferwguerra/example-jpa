@@ -11,7 +11,9 @@ public class User {
     private int id;
     private String name;
     private int age;
-    private String address;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
 
     public int getId() {
         return id;
@@ -37,11 +39,11 @@ public class User {
         this.age = age;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

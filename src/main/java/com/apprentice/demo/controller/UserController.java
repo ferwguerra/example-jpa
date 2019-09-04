@@ -1,5 +1,6 @@
 package com.apprentice.demo.controller;
 
+import com.apprentice.demo.domain.Address;
 import com.apprentice.demo.service.UserService;
 import com.apprentice.demo.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +24,13 @@ public class UserController {
         return userService.findById(id);
     }
 
-    @RequestMapping(value = "/creation/{name}", method = GET) // THIS SHOULD BE POST!
+    @RequestMapping(value = "/creation/{name}/address/{addressId}", method = GET) // THIS SHOULD BE POST!
     @ResponseBody
-    public User create(@PathVariable("name") String name) {
+    public User create(@PathVariable("name") String name, @PathVariable("addressId") int addressId) {
         User user = new User();
         user.setName(name);
         user.setAge(44);
-        user.setAddress("bla 123");
-        return userService.create(user);
+        return userService.create(user, addressId);
     }
 
 
