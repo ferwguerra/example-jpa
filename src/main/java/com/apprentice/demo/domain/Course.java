@@ -14,7 +14,7 @@ public class Course {
     private int id;
     private String subject;
     @ManyToMany(mappedBy = "courses")
-            @JsonIgnore
+    @JsonIgnore
     Set<User> users;
 
     public Set<User> getUsers() {
