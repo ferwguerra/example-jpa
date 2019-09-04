@@ -1,4 +1,4 @@
-package com.apprentice.demo;
+package com.apprentice.demo.domain;
 
 import javax.persistence.*;
 

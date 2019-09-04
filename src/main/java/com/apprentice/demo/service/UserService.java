@@ -1,5 +1,7 @@
-package com.apprentice.demo;
+package com.apprentice.demo.service;
 
+import com.apprentice.demo.domain.User;
+import com.apprentice.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
