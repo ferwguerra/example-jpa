@@ -1,6 +1,8 @@
 package com.apprentice.demo.controller;
 
+import com.apprentice.demo.domain.Course;
 import com.apprentice.demo.domain.User;
+import com.apprentice.demo.service.CourseService;
 import com.apprentice.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,26 +14,22 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("course")
 public class CourseController {
 
     @Autowired
-    private UserService userService;
+    private CourseService courseService;
 
     @RequestMapping(value = "/{id}", method = GET)
     @ResponseBody
-    public User getUser(@PathVariable("id") Integer id) {
-        return userService.findById(id);
+    public Course getCourse(@PathVariable("id") Integer id) {
+        return courseService.findById(id);
     }
 
-    @RequestMapping(value = "/creation/{name}/address/{addressId}", method = GET) // THIS SHOULD BE POST!
+    @RequestMapping(value = "/", method = GET)
     @ResponseBody
-    public User create(@PathVariable("name") String name, @PathVariable("addressId") int addressId) {
-        User user = new User();
-        user.setName(name);
-        user.setAge(44);
-        return userService.create(user, addressId);
+    public Iterable<Course> getAllCourses() {
+        return courseService.findAll();
     }
-
 
 }
