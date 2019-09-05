@@ -2,6 +2,7 @@ package com.apprentice.demo.domain;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 @Table(name = "users")
@@ -21,7 +22,7 @@ public class User {
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "course_id") }
     )
-    private Set<Course> courses;
+    private Set<Course> courses = new TreeSet<>();
 
     public Set<Course> getCourses() {
         return courses;
