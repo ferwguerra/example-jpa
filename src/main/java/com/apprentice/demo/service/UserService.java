@@ -25,6 +25,10 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
+    public Iterable<User> findAll() {
+        return userRepository.findAll();
+    }
+
     public User create(User user, Address address) {
         address = addressRepository.findById(address.getId()).get();
         user.setAddress(address);

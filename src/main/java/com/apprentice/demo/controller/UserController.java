@@ -25,6 +25,12 @@ public class UserController {
         return userService.findById(id);
     }
 
+    @RequestMapping(value = "/", method = GET)
+    @ResponseBody
+    public Iterable<User> getAllUsers() {
+        return userService.findAll();
+    }
+
     @RequestMapping(value = "/creation/{name}/address/{addressId}", method = GET) // THIS SHOULD BE POST!
     @ResponseBody
     public User create(@PathVariable("name") String name, @PathVariable("addressId") int addressId) {
