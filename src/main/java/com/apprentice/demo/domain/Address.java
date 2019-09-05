@@ -1,24 +1,9 @@
 package com.apprentice.demo.domain;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "addresses")
 public class Address {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private String street;
     private int number;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private int floor;
 
     public String getStreet() {
         return street;
@@ -34,5 +19,13 @@ public class Address {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 }
