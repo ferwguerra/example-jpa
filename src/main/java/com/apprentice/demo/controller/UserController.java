@@ -14,16 +14,16 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("userFromCustomRepository")
 public class UserController {
 
     @Autowired
     private UserCustomRepository userRepository;
 
-    @RequestMapping(value = "/grade/{minimum}", method = GET)
+    @RequestMapping(value = "/{name}", method = GET)
     @ResponseBody
-    public List<User> getUserByMinimumGrade(@PathVariable("minimum") String minimum) {
-        return userRepository.findByGrade(minimum);
+    public List<User> getUserByMinimumGrade(@PathVariable("name") String name) {
+        return userRepository.findByName(name);
     }
 }
 

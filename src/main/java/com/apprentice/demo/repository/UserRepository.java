@@ -15,5 +15,11 @@ public interface UserRepository extends MongoRepository<User, String> {
     List<User> findByName(@Param("name") String name);
 
     @Query("{'address.street': ?0}")
-    List<User> findByStreet(final String grade);
+    List<User> findByStreet(String street);
+
+    @Query("{'courses.subject':{$eq:?0}}")
+    List<User> findBySubject(String subject);
+
+    @Query("{'courses.grade':{$eq:?0}}")
+    List<User> findByGrade(String grade);
 }

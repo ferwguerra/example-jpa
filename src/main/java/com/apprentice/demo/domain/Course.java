@@ -1,10 +1,18 @@
 package com.apprentice.demo.domain;
 
-import java.util.Set;
-
 public class Course {
 
     private String subject;
+    private String grade;
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
 
     public String getSubject() {
         return subject;

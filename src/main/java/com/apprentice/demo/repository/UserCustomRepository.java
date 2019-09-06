@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UserCustomRepository {
 
-    List<User> findByGrade(String grade);
+    List<User> findByName(String grade);
 
 }

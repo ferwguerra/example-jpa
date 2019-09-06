@@ -1,6 +1,7 @@
 package com.apprentice.demo.repository;
 
 import com.apprentice.demo.domain.User;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -9,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.gt;
+import static org.springframework.data.mongodb.core.query.Criteria.*;
+import static org.springframework.data.mongodb.core.query.Query.*;
+
 @Repository
 public class UserCustomReposityImpl implements UserCustomRepository{
 
@@ -16,8 +22,7 @@ public class UserCustomReposityImpl implements UserCustomRepository{
     MongoTemplate mongoTemplate;
 
     @Override
-    public List<User> findByGrade(String grade) {
-        return mongoTemplate.find(
-                Query.query(Criteria.where("courses").all().gt(grade)), User.class);
+    public List<User> findByName(String name) {
+        return mongoTemplate.find(query(where("name").is(name)), User.class);
     }
 }
